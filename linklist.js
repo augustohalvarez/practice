@@ -61,14 +61,25 @@ SinglyLinkedList.prototype.unshift = function (val) {
   return this;
 }
 
+SinglyLinkedList.prototype.shift = function () {
+  if (this.length === 0) {
+    console.log('error, cannot remove from empty list');
+    return null;
+  } else {
+    let temp = this.head;
+    this.head = this.head.next;
+    temp.next = null;
+    this.length--;
+    return temp;
+  }
+}
+
 
 /*** Tests ***/
 
 myList.push(5);
 myList.push(15);
 myList.push(20);
-myList.unshift(1);
+console.log(myList.shift());
 // console.log(myList.head.val);
 // console.log(myList.tail.val);
-
-console.log(myList.head.val);
