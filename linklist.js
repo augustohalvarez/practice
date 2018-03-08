@@ -31,6 +31,7 @@ myList.push(20);
 // console.log(myList.head.val);
 // console.log(myList.tail.val);
 
+// This is a pop method for singly linked list
 SinglyLinkedList.prototype.pop = function() {
     if (this.length == 0) {
         return null;
