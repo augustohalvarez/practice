@@ -8,6 +8,7 @@ function SinglyLinkedList(){
     this.tail = null;
     this.length = 0;
 }
+var myList = new SinglyLinkedList();
 
 SinglyLinkedList.prototype.push = function(value) {
     if (this.length == 0) {
@@ -17,21 +18,13 @@ SinglyLinkedList.prototype.push = function(value) {
     else {
         var temp = new Node(value);
         this.tail.next = temp;
-        this.tail = temp;        
+        this.tail = temp;
     }
     this.length++;
 
     return this;
 }
 
-var myList = new SinglyLinkedList();
-myList.push(5);
-myList.push(15);
-myList.push(20);
-// console.log(myList.head.val);
-// console.log(myList.tail.val);
-
-// This is a pop method for singly linked list
 SinglyLinkedList.prototype.pop = function() {
     if (this.length == 0) {
         return null;
@@ -55,10 +48,27 @@ SinglyLinkedList.prototype.pop = function() {
     this.length--;
 }
 
-console.log(myList.pop());
+SinglyLinkedList.prototype.unshift = function (val) {
+  if (this.length === 0) {
+    this.head = new Node(val);
+    this.tail = this.head;
+  } else {
+    let temp = this.head;
+    this.head = new Node(val);
+    this.head.next = temp;
+  }
+  this.length++;
+  return this;
+}
 
 
+/*** Tests ***/
 
+myList.push(5);
+myList.push(15);
+myList.push(20);
+myList.unshift(1);
+// console.log(myList.head.val);
+// console.log(myList.tail.val);
 
-
-
+console.log(myList.head.val);
